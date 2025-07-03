@@ -1,0 +1,444 @@
+:root {
+    --primary-bg: #1a1a2e;
+    --secondary-bg: #16213e;
+    --tertiary-bg: #0f3460;
+    --card-bg: #2d3b55;
+    --font-color: #e94560;
+    --text-color: #dcdcdc;
+    --text-muted: #a0a0a0;
+    --accent-color: #16c79a;
+    --danger-color: #e94560;
+    --border-color: #40405c;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background-color: var(--secondary-bg);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+h1 {
+    color: var(--font-color);
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+/* Config Section */
+.config-panel {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1rem;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.config-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.config-field label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+}
+
+input[type="date"],
+input[type="number"] {
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+input[type="number"] {
+    width: 120px;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.tab {
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.tab:hover {
+    color: var(--text-color);
+}
+
+.tab.active {
+    color: var(--accent-color);
+}
+
+.tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+/* Content Area */
+.content {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    min-height: 400px;
+}
+
+/* Transaction Table View */
+.transaction-view h2 {
+    margin-top: 0;
+    color: var(--text-color);
+}
+
+.transaction-table-wrapper {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+}
+
+.transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.transaction-table th,
+.transaction-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.transaction-table th {
+    background-color: var(--tertiary-bg);
+    position: sticky;
+    top: 0;
+    font-weight: 600;
+}
+
+.transaction-table tr:last-child td {
+    border-bottom: none;
+}
+
+.transaction-table .amount-income {
+    color: var(--accent-color);
+}
+
+.transaction-table .amount-expense {
+    color: var(--danger-color);
+}
+
+.transaction-table .delete-btn {
+    background: none;
+    border: 1px solid var(--danger-color);
+    color: var(--danger-color);
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.transaction-table .delete-btn:hover {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+/* Add Transaction Form */
+.add-transaction-form {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.add-transaction-form .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-transaction-form label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+}
+
+.add-transaction-form input {
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+}
+
+.add-transaction-form button {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    height: fit-content;
+}
+
+.add-transaction-form button:hover {
+    opacity: 0.9;
+}
+
+/* Chart View */
+.chart-view {
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-controls {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    align-self: flex-end;
+}
+
+.chart-controls button {
+    background-color: var(--tertiary-bg);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.chart-controls button.active {
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
+    border-color: var(--accent-color);
+}
+
+.chart-container {
+    width: 100%;
+    height: 350px;
+}
+
+.chart-container svg {
+    width: 100%;
+    height: 100%;
+}
+
+.chart-container .grid-line {
+    stroke: var(--border-color);
+    stroke-dasharray: 2, 2;
+}
+
+.chart-container .axis-line {
+    stroke: var(--text-muted);
+}
+
+.chart-container .axis-text {
+    fill: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+.chart-container .balance-line {
+    stroke: var(--accent-color);
+    stroke-width: 2;
+    fill: none;
+}
+
+.chart-container .current-date-line {
+    stroke: var(--font-color);
+    stroke-width: 1.5;
+    stroke-dasharray: 6, 3;
+}
+
+.chart-container .zero-line {
+    stroke: var(--danger-color);
+    stroke-width: 1;
+    stroke-dasharray: 4, 4;
+}
+
+.chart-tooltip {
+    position: absolute;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    transform: translate(-50%, -120%);
+}
+
+/* Calendar View */
+.calendar-view {
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.calendar-header h2 {
+    margin: 0;
+    color: var(--text-color);
+}
+
+.calendar-nav button {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 1.2rem;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 0.25rem;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-day-header {
+    text-align: right;
+    font-weight: bold;
+    color: var(--text-muted);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.9em;
+}
+
+.calendar-day {
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    min-height: 100px;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    overflow: hidden;
+    transition: background-color 0.2s;
+}
+
+.calendar-day.is-today {
+    background-color: var(--tertiary-bg);
+    border-color: var(--accent-color);
+}
+
+.calendar-day.is-today .day-number {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.calendar-day.other-month {
+    opacity: 0.4;
+    background-color: var(--primary-bg);
+}
+
+.day-number {
+    text-align: right;
+    font-weight: bold;
+}
+
+.day-balance {
+    font-size: 0.8em;
+    color: var(--text-muted);
+    text-align: right;
+}
+
+.day-transactions {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    max-height: 50px;
+    overflow-y: auto;
+}
+
+.day-transactions li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 2px 4px;
+    border-radius: 3px;
+    margin-bottom: 2px;
+}
+
+.day-transactions .income {
+    background-color: rgba(22, 199, 154, 0.2);
+    color: var(--accent-color);
+}
+
+.day-transactions .expense {
+    background-color: rgba(233, 69, 96, 0.2);
+    color: var(--danger-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #app {
+        padding: 1rem;
+        margin: 1rem;
+    }
+    .config-panel {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .add-transaction-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+     .add-transaction-form .form-group {
+        width: 100%;
+    }
+    .add-transaction-form input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}

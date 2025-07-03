@@ -1,0 +1,5 @@
+{
+  "name": "Recurring Payments Tracker",
+  "description": "Enter and track payments and account balances over time with chart and calendar visualizations.",
+  "requestFramePermissions": []
+}
