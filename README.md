@@ -37,5 +37,11 @@ Please explain how user data is persisted. Can the application be updated to per
 - **Gemini** proposed and used localStorage
 - **Cursor** accepted the sqlite suggestion and updated the application
 
+## Fourth Prompt
+
+> Cursor "Let me know if you want to add backup, import/export, or multi-user support!"
+
+Yes, lets continue with import/export.
+
 
 
